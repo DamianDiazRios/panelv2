@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FFIS-IMIB-SERVIDORES</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}" type="image/png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='panel/css/estilo.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        {% include 'fragmentos/_navegador.html' %}
+        <div class="row">
+            <div class=" col-md-6 text-center">
+                <img src="http://www.imib.es/ServletDocument?document=65501" class="rounded float-start mb-10" alt="...">
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="http://www.imib.es/ServletDocument?document=82489" class="rounded float-end mt-5 mb-8" alt="...">
+            </div>
+        </div>
+
+        {% include 'fragmentos/_menu_lateral.html' %}
+        {% include 'fragmentos/_alertas.html' %}
+        {% block contenido %}
+        {% endblock %}
+        {% include 'fragmentos/_footer.html' %}
+    </div>
+
+
+<script src="{{ url_for('static', filename='global/js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>

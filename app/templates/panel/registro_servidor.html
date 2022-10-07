@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<form class="row g-3" action="{{ url_for('panel.registro') }}" method="POST">
+  <div class="col-md-3">
+    {{ servidor.nombre.label(class="form-label") }}
+    {{ servidor.nombre(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ servidor.usuario.label(class="form-label") }}
+    {{ servidor.usuario(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ servidor.clave.label(class="form-label") }}
+    {{ servidor.clave(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ servidor.ip.label(class="form-label") }}
+    {{ servidor.ip(class="form-control") }}
+  </div>
+  <div class="col-md-4"></div>
+  <div class="d-grip gap-2" align="center">
+    <button class="btn btn-primary -btn-lg btn-block mt-2" type="submit">Añadir</button>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+
+{% if current_user.rol == 'admin' %}
+
+    <div class="pb-3 pt-3 col-md-12">
+        <h3 colspan="6" class="text-center">CORREOS ENVIADOS</h3>
+        <table class="table table-correos table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th scope="col" class="text-center">Id</th>
+                <th scope="col" class="text-center">Fecha Envio</th>
+                <th scope="col" class="text-center">Asunto</th>
+                <th scope="col" class="text-center">Remitente</th>
+                <th scope="col" class="text-center">Contenido</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for asunto in asuntos %}
+
+
+                    <tr>
+
+                        <td align="center">{{ asunto.0|striptags|title }}</td>
+                        <td align="center">{{ asunto.4|striptags|title }}</td>
+                        <td align="center">{{ asunto.1|striptags|title }}</td>
+                        <td align="center">{{ asunto.5|striptags|title }}</td>
+                        <td><a href="{{ url_for('correo.correos', id=asunto.0) }}" class="btn btn-tamano botonCorreo">Ver correo</a></td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+
+    {% endif %}
+
+{% endblock %}

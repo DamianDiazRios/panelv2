@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<div class="row">
+    <div class="text-center">
+        <a href="{{ url_for('panel.servidor', id_servidor=id_servidor) }}" class="btn btn-atras">Atrás</a>
+    </div>
+    {% for directorio in backup %}
+    <div class="col-sm-4 mt-4" align="center">
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='servers.jpg')}}" type="image/png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ directorio['servidorCopia']| title }}</h5>
+                    <a href="{{ url_for('panel.listBbdd', id_servidor=id_servidor, id_backup=directorio['id_backup']) }}" class="btn btn-servidores">Entrar al Servidor</a>
+                </div>
+            </img>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

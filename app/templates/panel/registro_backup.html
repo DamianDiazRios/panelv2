@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<form class="row g-3" action="{{ url_for('panel.backup',id_servidor=id_servidor) }}" method="POST">
+  <div class="col-md-3">
+    {{ backup.servidorCopia.label(class="form-label") }}
+    {{ backup.servidorCopia(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ backup.nombreCopia.label(class="form-label") }}
+    {{ backup.nombreCopia(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ backup.servidor_id.label(class="form-label") }}
+    {{ backup.servidor_id(class="form-control") }}
+  </div>
+  <div class="col-md-3">
+    {{ backup.ruta.label(class="form-label") }}
+    {{ backup.ruta(class="form-control") }}
+  </div>
+
+  <div class="col-md-4"></div>
+  <div class="d-grip gap-2" align="center">
+    <button class="btn btn-primary -btn-lg btn-block mt-2" type="submit">Añadir</button>
+  </div>
+</form>
+
+{% endblock %}

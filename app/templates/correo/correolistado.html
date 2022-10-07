@@ -1,0 +1,13 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+  <div class="row">
+    <h3 class="text-center">Correos enviados por año</h3>
+    {% for anio in anios %}
+    <div class="col-sm-4">
+      <div class="card mt-5">
+          <a href="{{ url_for('correo.copiamailsAnio', anio=anio) }}" class="btn btn-servidores">{{ anio }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

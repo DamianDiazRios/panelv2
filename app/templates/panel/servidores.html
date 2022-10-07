@@ -1,0 +1,113 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<div class="row" >
+    <div class="text-center">
+       <a href="{{ url_for('panel.index') }}" class="btn btn-atras">Atrás</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title text-center">{{ servidor['nombre']| title }}</h5>
+    </div>
+    <div class="pb-3 pt-3 col-md-2"></div>
+    <div class="pb-3 pt-3 col-md-8">
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr><th colspan="6" class="text-center">Estado discos</th></tr>
+            <tr>
+                <th scope="col" class="text-center">Particiones</th>
+                <th scope="col" class="text-center">Tamaño</th>
+                <th scope="col" class="text-center">Usado</th>
+                <th scope="col" class="text-center">Disponible</th>
+                <th scope="col" class="text-center">Uso%</th>
+                <th scope="col" class="text-center">Montado en</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for comando in disco %}
+                    <tr>
+                        {% for comando2 in comando %}
+                            <td align="center">{{ comando2|striptags|title }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="pb-3 pt-3 col-md-2"></div>
+    <div class="pb-3 pt-3 col-md-8" >
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr><th colspan="8" class="text-center">Memoria Ram</th></tr>
+                <tr>
+                    <th scope="col" class="text-center">Tipo</th>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">Usada</th>
+                    <th scope="col" class="text-center">Libre</th>
+                    <th scope="col" class="text-center">Compartida</th>
+                    <th scope="col" class="text-center">Cacheada</th>
+                    <th scope="col" class="text-center">Disponible</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for memoria in ram %}
+                        <td align="center">{{ memoria|striptags|title }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pb-3 pt-3 col-md-2"></div>
+    <div class="pb-3 pt-3 col-md-2"></div>
+    <!--div class="pb-3 pt-3 col-md-8">
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr><th colspan="8" class="text-center">Memoria Swat</th></tr>
+                <tr>
+                    <th scope="col" class="text-center">Tipo</th>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">Usada</th>
+                    <th scope="col" class="text-center">Libre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for swat2 in swat %}
+                        <td align="center">{{ swat2|striptags|title }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pb-3 pt-3 col-md-2"></div>
+    <div class="pb-3 pt-3 col-md-2"></div-->
+    <div class="pb-3 pt-3 col-md-8">
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr><th colspan="8" class="text-center">Procesos abiertos</th></tr>
+                <tr>
+                    <th scope="col" class="text-center">PID</th>
+                    <th scope="col" class="text-center">%CPU</th>
+                    <th scope="col" class="text-center">%Memoria</th>
+                    <th scope="col" class="text-center">Comando</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for proc in procesos %}
+                    <tr>
+                        {% for proceso in proc %}
+                            <td align="center">{{ proceso|striptags|title }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

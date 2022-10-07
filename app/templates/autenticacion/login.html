@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<div class="row">
+<div class="col-lg-12">
+    <div class="row g-3" >
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <h3 class="text-center mb-4 text-primary mt-4 mb-5"><i class="fa fa-tools fa-3x" style="color:#28a745"></i></h3>
+    <form action="{{ url_for('autenticacion.login') }}" method="POST">
+        {{ login.usuario.label }}
+        {{ login.usuario(class="form-control") }}
+        {{ login.password.label }}
+        {{ login.password(class="form-control") }}
+        {{ login.next() }}
+        <div align="center">
+            <input class="btn btn-primary -btn-lg btn-block mt-4" type="submit" value="Enviar">
+        </div>
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+<br/>
+<div class="col-md-4"></div>
+    <script>
+        var params = new URLSearchParams(window.location.search)
+        if(params.has("next"))
+            document.getElementById("next").value = params.get("next")
+    </script>
+</div>
+</div>
+</div>
+
+{% endblock %}

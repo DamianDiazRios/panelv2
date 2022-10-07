@@ -1,0 +1,30 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<div class="row text-center mt-2">
+    {% for campo in correo %}
+        <div class="col-md-4 mt-4 border border-dark rounded">
+            <h5>ID: <br/>{{ campo.0 }}</h5>
+        </div>
+        <div class="col-md-4 mt-4 border border-dark rounded">
+            <h5>Fecha: <br/>{{ campo.4 }}</h5>
+        </div>
+        <div class="col-md-4 mt-4 border border-dark rounded">
+            <h5>Remitente: <br/>{{ campo.5|title }}</h5>
+        </div>
+        <h3 class="mt-5">Asunto</h3>
+        <div class="col-md-12 border border-dark rounded">
+            <h4>{{ campo.1 }}</h4>
+        </div>
+        <h3 class=" mt-5 ">Contenido</h3>
+        <div class="col-md-12 border border-dark rounded">
+        <h4>{{ campo.2|safe }}</h4>
+        </div>
+    {% endfor %}
+
+        <h3 class=" mt-5 ">Destinatarios</h3>
+        <div class="col-md-12 border border-dark rounded">
+            <h4>{{ correos|safe }}</h4>
+        </div>
+
+</div>
+{% endblock %}
