@@ -1,0 +1,28 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+<div class="text-center">
+    <div class="row">
+        <table class="table table-correos table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th scope="col" class="text-center">Aplicación</th>
+                <th scope="col" class="text-center">Descripción</th>
+                <th scope="col" class="text-center">Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for backup in listado %}
+                <tr>
+                    <td align="center">{{ backup['APLICACION']|striptags|title }}</td>
+                    <td class="col-md-9">{{ backup['OBSERVACIONES']|striptags|title }}</td>
+                        <td><a href="{{ url_for('backup.editar', id=backup['id']) }}" class="btn btn-tamano botonCorreo">Ver Backup</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a href="{{ url_for('backup.nuevo') }}" class="btn btn-servidores">Añadir Backup</a>
+    </div>
+</div>
+{% endblock %}

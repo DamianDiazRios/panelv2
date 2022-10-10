@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, flash, redirect, abort, session
-from app.panel.panel_bbdd import RegistroServidor, Servidores, RegistroBackup, Backup, FormSINO
+from app.panel.panel_bbdd import RegistroServidor, Servidores, FormSINO
 from app import db, mysql
 #from app import db, mysql #msyql para implementar el buscador
 from flask_login import login_required
