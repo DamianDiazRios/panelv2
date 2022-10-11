@@ -7,10 +7,10 @@ from decimal import Decimal
 class Correos(db.Model):
     __tablename__ = 'copiamails'
     id = db.Column(db.Integer, primary_key = True)
-    asunto = db.Column(db.String(4294000000))
-    contenido = db.Column(db.String(4294000000))
+    asunto = db.Column(db.Text(4294000000))
+    contenido = db.Column(db.Text(4294000000))
     fecha_envio = db.Column(db.DateTime())
-    fuente = db.Column(db.String(4294000000))
+    fuente = db.Column(db.Text(4294000000))
     tipo_alerta = db.Column(db.Integer)
 
 
