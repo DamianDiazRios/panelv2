@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+    <div id='write'  class=''>
+        <h1 id='cambio-de-contraseña-correo-ffises-e-imibes'>
+            <span>Cambio de contraseña correo ffis.es e imib.es</span>
+        </h1><p>&nbsp;</p>
+        <p><span>Acceder a </span><a href='https://www.redctnet.es/JSP/PRM/portal/correoPortal/loginup.jsp' target='_blank' class='url'>https://www.redctnet.es/JSP/PRM/portal/correoPortal/loginup.jsp</a></p>
+        <p>&nbsp;</p>
+        <p><span>Pulsamos en el enlace </span><strong><span>&quot;Cambiar clave&quot;</span></strong>
+        </p>
+        <p><img src="{{ url_for ('static', filename='documentacion/clic-cambiopass.jpg') }}" type="image/png"></p>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><strong><span>Rellenamos los datos del formualrio y pulsamos en &quot;enviar&quot;</span></strong></p>
+        <p>&nbsp;</p>
+        <p><img src="{{ url_for ('static', filename='documentacion/newpass.png') }}" type="image/png"></p>
+    </div>
+{% endblock %}

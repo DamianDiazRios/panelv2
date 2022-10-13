@@ -1,0 +1,382 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+
+
+<div id='write'  class=''>
+    <h1 id='servidores'><span>Servidores</span></h1>
+    <h2 id='sap-1018182252'><strong><span>SAP (10.181.82.252):</span></strong></h2>
+    <p><span>Se realizan las copias en local, y se mueven al pc damian del puva or falta de espacion en el server.</span></p>
+    <p><span>Ademas se hace una copia en el pc de antonio martinez</span></p>
+    <p><span>Por ultimo se eliminan del server para recuperar espacio</span></p>
+    <p>&nbsp;</p>
+    <p><span>Para consultar o modificar los esquemas de sql server abrir sql server management studio,desplegar “Administración”, luego “Planes de Mantenimiento” y a continuación aparecerá nuestro plan. Hacemos doble click para visualizarlo</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/sqlplans.jpg') }}"  type="image/png"></p>
+    <p>
+        <span>Para consultar el histórico de ejecuciones del plan de mantenimiento, pulsamos botón derecho sobre</span>
+        <span>MaintenancePlan y ejecutamos View History.</span>
+    </p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/sqlplanshistory.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p>
+    <p><span>(Ejecución Manual)</span></p>
+    <p><span>Si se desea ejecutar cualquier de los planes manualmente, podemos hacerlo desde SQL Server Agent ==&gt;Jobs.</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/sqlmanual.jpg') }}"  type="image/png"></p>
+    <p><span>Clicamos botón secundarip sobre el Plan que queramos ejecutar y seleccionamos “Start Job at step…”.</span></p>
+    <p>&nbsp;</p>
+    <p><span>(RESTAURACIÓN) :</span></p>
+    <p><span>Para restaurar una copia en cualquier SQL Server, el procedimiento es el siguiente:</span></p>
+    <ul>
+        <li><span>Parar todos los servicios</span></li>
+        <li><span>Abrimos Microsoft SQL Server Management Studio y desplegamos el menú Bases de datos</span>
+            <span>(Databases).</span>
+        </li>
+        <li><span>SQL Configuration managers y parar mysql_server</span></li>
+        <li><span>Con el botón secundario, hacemos clic sobre la base de datos que queremos restaurar. Tareas (Tasks) ==&gt; Restaurar (Restore) ==&gt; Base de datos… (Database…)</span></li>
+        <li><span>Si nos diera problemas al restaurar, en Options marcar with replace.</span></li>
+        <li><span>A continuación, aparecerá la ventana de restauración donde se puede modificar la base de datos destino y fuente. Y donde el propio gestor muestra un histórico de las copias de seguridad y te deja marcado las copias de seguridad necesarias para restaurar la última copia de seguridad realizada. Además, si quisiera restaurarse a una copia de un día diferente se puede modificar simplemente seleccionando otra copia. Para evitar posibles errores en la restauración, pulsamos sobre el menú Opciones (Options) situado a la izquierda, y marcamos la casilla Overwrite the existing database.</span>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p><span>Es importante seleccionar la sección Options y dentro, pulsar sobre el checkbox “Override the existing database (WITH REPLACE)”.</span></p>
+    <p>&nbsp;</p>
+    <p><span>Realizamos una copia de seguridad de la base de datos FUNDACION.</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/copiaBBDD.jpg') }}"  type="image/png"></p>
+    <p><span>En la sección Destination añadimos un destino indicando la ruta donde queremos guardar la copia y clicamos sobre Copy-only Backup, para no alterar las copias de seguridad incrementales programadas</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/copiaBBDD1.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p><p><span>Ahora resstauramos la BBDD en pruebas</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/restoreDB.jpg') }}"  type="image/png"></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/restoreDB1.jpg') }}"  type="image/png"></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/sap/overrideDB.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p>
+    <h2 id='gestión-de-maquinas-virtuales'><span>Gestión de maquinas virtuales</span></h2>
+    <p><span>En el cpd del HCUVA hay una maquina con vmware ESXI (10.181.82.247), en ella estan las maquinas virtuales</span></p>
+    <ul>
+        <li><span>ffis-sap-2022</span></li>
+        <li><span>ffis-sap (viejo)</span></li>
+        <li><span>ffis-terminal-server (usada por contabilidad para conectarse a sap desde casa)</span>
+        </li>
+    </ul>
+    <p><span>Para acceder a ese vmware es necesario instalar el cliente vmware vSaphere en un windows, el instalador esta en la unidad de red informatica/software/VSphere</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/gestion-mv/cliente.jpg') }}"  type="image/png"></p>
+    <p><span>Si hacemos clic con el botón derecho del ratón sobre la máquina, dispondremos de varias opciones. Una de ellas es abrir Consola, donde podemos ver la máquina en ejecución. Para acceder a los directorios de VMWare donde se encuentra cada máquina virtual, seleccionamos la máquina que deseemos en el listado. Seleccionamos la pestaña Summary y, a continuación, en el panel Resources, vemos un listado de Storage’s. Botón derecho del ratón sobre el datastore que aparece y seleccionamos Browse Datastore...</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/gestion-mv/datastore.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p>
+    <p><span>Varios</span></p>
+    <p><span>Salud mental (2019 Actualizado id&gt;53, hasta el 95, inclusive)</span></p>
+    <p><span>Esta consulta se corresponde con los datos de la pestaña Datos.</span></p>
+    <p><span>SELECT c.nombre, nc.porcentaje, c.tipo, ce.nombre, n.sexo, n.edad,n.area_sanitario, n.profesion, n.iniciales FROM necesidad n,</span>
+    <span>necesidad_curso nc, curso c, centro ce WHERE ce.id = n.centro and n.id = nc.necesidad and c.id = nc.curso and nc.porcentaje is not null and n.id &gt; 53</span></p>
+    <p>&nbsp;</p>
+    <p><span>Esta consulta también sirve:</span></p>
+    <p>
+        <span>SELECT n.iniciales as Iniciales, n.edad as Edad, n.profesion as Profesión, ce.nombre as Centro, c.nombre as Curso, c.tipo as &quot;Área asistencial&quot;, nc.porcentaje as Orden FROM </span>
+        <code>necesidad_curso</code>
+        <span> nc, necesidad n, curso c, centro ce </span>
+        <span>where n.id&gt;53 and n.id = nc.necesidad and c.id = nc.curso and ce.id = n.centro</span>
+    </p>
+    <p>&nbsp;</p>
+    <p><span>Esta consulta se corresponde con los datos de la pestaña Cursos propuestos.</span></p>
+    <p>&nbsp;</p>
+    <p><span>SELECT n.iniciales, n.profesion, ce.nombre, n.sexo, n.edad, n.profesion,n.nombre_curso1, n.docente_1, n.programa_previo1,</span>
+    <span>n.responsable_coordinacion1,n.nombre_curso2, n.docente2, n.programa_previo_2,n.responsable_coordinacion2,</span>
+    <span>n.nombre_curso_3, n.docente_3, n.programa_previo_3,n.responsable_coordinacion_3,n.nombre_curso_4, n.docente_4, n.programa_previo_4,n.responsable_coordinacion_4,n.nombre_curso_5, n.docente_5, n.programa_previo_5,n.responsable_coordinacion_5,n.nombre_curso_6, n.docente_6, n.programa_previo_6,n.responsable_coordinacion_6 FROM necesidad n, centro ce WHERE ce.id = n.centro and n.id &gt; 53</span></p>
+    <p>&nbsp;</p>
+    <p><span>Las otras dos pestañas son tablas dinámicas con los datos que ella necesita.</span></p>
+    <p><span>Consultas JZERO (TDPC - Toma de decisiones en la práctica clínica)</span></p>
+    <p><span>Esta consulta obtiene los datos de cada usuario para un portal.</span></p>
+    <p><span>select usuario, MAX(status) as status, MAX(nota) as nota, SUM(duration) as duration from registro_envio_datos_sesion_jarpyo reg where portal = 1 and eliminado = 0 group by usuario order by nota desc</span></p>
+    <p>&nbsp;</p>
+    <p>
+        <span>Consultas cursos e-drogas</span>
+        <span>Para generar un excel con los datos de los participantes, realizamos la siguiente consulta desde phpmyadmin</span>
+    </p><p>
+    <code>SELECT u.firstName as nombre, concat(u.middleName, &#39; &#39;, u.lastName) as</code>
+    <code>apellidos, u.emailAddress,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_28&gt;&lt;valor&gt;&#39;)+18,(INSTR(i.val</code>
+    <code>or,&#39;&lt;/valor&gt;&lt;/SIGFOR_28&gt;&#39;)-@b)) as nif,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_9&gt;&lt;valor&gt;&#39;)+17,(INSTR(i.valo</code>
+    <code>r,&#39;&lt;/valor&gt;&lt;/SIGFOR_9&gt;&#39;)-@b)) as expectativas,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_10&gt;&lt;valor&gt;&#39;)+18,(INSTR(i.val</code>
+    <code>or,&#39;&lt;/valor&gt;&lt;/SIGFOR_10&gt;&#39;)-@b)) as motivacion,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_11&gt;&lt;valor&gt;&#39;)+18,(INSTR(i.val</code>
+    <code>or,&#39;&lt;/valor&gt;&lt;/SIGFOR_11&gt;&#39;)-@b)) as formacion,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_12&gt;&lt;valor&gt;&#39;)+18,(INSTR(i.val</code>
+    <code>or,&#39;&lt;/valor&gt;&lt;/SIGFOR_12&gt;&#39;)-@b)) as puesto,</code>
+    <code>SUBSTRING(i.valor,@b:=INSTR(i.valor,&#39;&lt;SIGFOR_26&gt;&lt;valor&gt;&#39;)+18,(INSTR(i.val</code>
+    <code>or,&#39;&lt;/valor&gt;&lt;/SIGFOR_26&gt;&#39;)-@b)) as colabora</code>
+    <code>FROM User_ u, Contact_ c, ffis_instancia_inscripcion i</code>
+    <code>WHERE u.contactid=c.contactid</code>
+    <code>AND u.userid=i.luser</code>
+    <code>AND i.edicion=11AND i.eliminado = 0</code>
+    <code>AND i.estado = 1</code>
+    <code>AND i.eliminado=0</code>
+</p>
+    <p>
+        <span>Donde hay que cambiar el identificador de la edición que queramos consultar. Para obtener dicho</span>
+        <span>identificador, debemos consultar en la base de datos, en la tabla ffis_edicion.</span>
+    </p>
+    <p><span>Una vez obtenido el resultado, exportamos a excel.</span></p>
+    <p>&nbsp;</p>
+    <h2 id='subir-bbdd-de-a3-para-que-solucionen-problemas'>
+        <span>Subir bbdd de A3 para que solucionen problemas</span>
+    </h2>
+    <p><span>Las bases de datos A3COMMON y A3LABORAL</span></p>
+    <p><span>El proceso para subir ficheros al ftp de a3software requiere la ejecución del siguiente link;</span>
+    </p>
+    <p><a href='http://soporte.a3software.com/utiles/a3ftputl.exe' target='_blank' class='url'>http://soporte.a3software.com/utiles/a3ftputl.exe</a></p>
+    <p>
+        <span>IMPORTANTE: El siguiente procedimiento incluye acciones que requieren de ciertos conocimientos</span>
+        <span>informáticos, por lo cual, le recomendamos que sea su informático quien lo lleve a cabo.</span>
+        <span>(Recomendamos comprimir el archivo, los archivos o carpetas a subir, para reducir el tamaño de los ficheros y</span>
+        <span>los tiempos de carga).</span>
+        <span>Una vez descargado y ejecutado, nos aparecerá la pantalla siguiente:</span>
+    </p>
+    <p><img src="{{ url_for ('static', filename='documentacion//subirBBDD-A3.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p>
+    <p>
+        <span>En la parte izquierda de la pantalla, deberá seleccionar los ficheros a subir. Una vez</span>
+        <span>seleccionados, con las flechas izquierda y derecha podrá añadir o restar ficheros a la selección.</span>
+        <span>·</span>
+        <span>Las selecciones serán fichero a fichero, por ese motivo, en caso de tener que subir una carpeta,</span>
+        <span>previamente deberá haberla comprimido.</span>
+        <span>·</span>
+        <span>Introduzca en el campo Nombre de su empresa, el nombre de la empresa por el cual le</span>
+        <span>tengamos registrado, para poder así asignar ese nombre a los ficheros subidos.</span>
+        <span>·</span>
+        <span>Una vez cumplimentados los campos anteriores, pulse el botón Subir Ficheros para que</span>
+        <span>comience la carga de los ficheros seleccionados.</span>
+    </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h2 id='comandos-para-ver-tamaño-ocupado-linux'><span>Comandos para ver tamaño ocupado Linux</span></h2>
+    <p><span>Directorios más pesados: </span><code>du -smh *</code></p>
+    <p><span>Los 5 más pesados de forma ordenada: </span>
+        <code>du -sm * | sort -nr | head -5</code>
+    </p>
+    <p><span>Espacio ocupado: </span><code>df -h</code></p>
+    <p><span>Espectacular:</span></p>
+    <p>
+        <code>du -k | sort -n | perl -ne &#39;if ( /^(\d+)\s+(.*$)/){$l=log($1+.1);$m=int($l/log(1024)); printf (&quot;%6.1f\t%s\t%25s %s\n&quot;,($1/(2**(10*$m))),((&quot;K&quot;,&quot;M&quot;,&quot;G&quot;,&quot;T&quot;,&quot;P&quot;)[$m]),&quot;*&quot;x (1.5*$l),$2);}&#39;</code>
+    </p>
+    <p>&nbsp;</p>
+    <h2 id='intranet-instrucciones-básicas-de-funcionamiento-permisos-de-escritura'>
+        <span>intranet, instrucciones básicas de funcionamiento, permisos de escritura</span></h2>
+    <ul>
+        <li>
+            <p><span>saber a qué grupos pertenece un usuario: </span>
+                <code>grep usename /etc/group</code>
+            </p>
+        </li>
+        <li>
+            <p><span>dar de alta un usuario en el sistema: </span>
+                <code>sudo useradd username --group groupname</code>
+            </p>
+        </li>
+        <li>
+            <p><span>dar de alta en samba (debe haberse dado de alta previamente en el sistema): sudo </span>
+                <code>smbpasswd -a username</code>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>cambiar la contraseña de un usuario en samba: </span>
+                <code>sudo smbpasswd username</code>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>Añadir un usuario a un grupo: </span>
+                <code>sudo usermod -a -G groupname username</code>
+            </p>
+        </li>
+        <li>
+            <p><span>Las copias de seguridad de samba se guardan en:</span>
+            </p>
+            <ul>
+                <li><span>/datos/backup en el servidor</span></li>
+                <li><span>Hay una segunda copia en el servidor &quot;gordi&quot;</span></li>
+            </ul>
+        </li>
+        <li><p><span>Para recuperar archivos corruptos/eliminados de la intranet:</span></p>
+            <ul>
+                <li><span>Buscar el archivo de la copia mas reciente al desastre en /datos/backup tanto del server como de gordi </span></li>
+                <li><span>copiarlo en la  carpeta donde estuviera originalmente (/datos/samba.........)</span></li>
+            </ul>
+        </li>
+        <li><p><span>dar de alta una nueva IP para que tenga acceso:</span></p>
+            <ul>
+                <li><span>Añadir la ip al apartado host allow de /etc/samba/smb.conf</span></li>
+            </ul>
+        </li>
+        <li><p>
+            <span>saber qué usuario está usando cada IP:
+            </span>
+            <code>smbstatus -p</code>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>saber qué usuario está bloqueando cada fichero:  </span>
+                <code>smbstatus -L</code>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>cuando hay fallos de permisos, porque un miembro de un grupo no puede escribir en un directorio o</span>
+                <span>leer algo basta con ejecutar estos 2 comandos:</span>
+            </p>
+            <ul>
+                <li><span>sudo chmod -R g+rw /datos/samba/*</span></li>
+                <li><span>sudo setfacl -R -b /datos/samba/*</span></li>
+            </ul>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <h2 id='levantar-servicio-siafoc'><span>Levantar servicio SIAFOC</span></h2>
+    <p><span>En el directorio de loksly - registro - se arranca con un:</span></p>
+    <p><code>forever index.js &amp;</code></p>
+    <p><span>Para parar el que has arrancado busca con</span></p>
+    <p><code>ps aux | grep registro</code></p>
+    <p><span>a ver si aparece algún node index.js.</span></p>
+    <h2 id='comando-linux-para-meter-un-usuario-en-un-grupo'><span>Comando Linux para meter un usuario en un grupo</span></h2>
+    <ul>
+        <li><span>Si tanto el usuario como el grupo existen: </span><code>usermod -a -G groupname username</code></li>
+    </ul>
+    <p>&nbsp;</p>
+    <h2 id='reducir-tamaño-de-ficheros-pdf-con-libreoffice-draw'><span>Reducir tamaño de ficheros pdf con libreoffice draw</span></h2>
+    <p><img src="{{ url_for ('static', filename='documentacion/tamanioPDF.jpg') }}"  type="image/png"></p>
+    <p><span>abrir el archivo PDF usando la aplicación LibreOffice Draw y después elegir en menú Archivo – Exportar a PDF y ajustar los valores de Compresión JPEG y Reducir resolución de imágenes, generalmente a valores más bajos para generar archivos más pequeños</span></p>
+    <p>&nbsp;</p>
+    <h2 id='crear-nueva-línea-pec-formación-ffis'><span>Crear nueva línea PEC formación FFIS</span></h2>
+    <ol start='' >
+        <li><span>Copiar el directorio anterior pecXXXX</span></li>
+        <li><span>Crear en la herramienta la nueva oferta formativa</span></li>
+        <li><span>Modificar el archivo &quot;comun.php&quot; de dicho directorio con el valor del nuevo año y con los &quot;idnavegabilidad....&quot; con el nuevo identificador creado en la tabla &quot;navegabilidad&quot; a pelo en la BBDD, y con el $_GET[&#39;of&#39;] = nueva oferta formativa</span></li>
+        <li><span>Crear el filtro para el nuevo año en la tabla de filtros &quot;filtroofertaformativa&quot; (se debería haber creado automáticamente con la oferta formativa)</span></li>
+        <li><span>Crear la nueva acción formativa como la del año anterior en:</span>
+            <a href='http://www.ffis.es/herramientas/formacion/pagina.php?modo=lineas&amp;accion=nueva' target='_blank' class='url'>http://www.ffis.es/herramientas/formacion/pagina.php?modo=lineas&accion=nueva</a>
+        </li>
+        <li><span>Editarla si es necesario para establecer el estado de las ediciones</span></li>
+        <li><span>Crear nueva entrada de menú en &quot;submenu_ffis&quot; para el menú de la web FFIS</span></li>
+        <li>
+            <span>Si los cursos no salen en el BUSCADOR</span>
+            <span>(</span><a href='https://www.ffis.es/formacion/buscador/#/oferta/19' target='_blank' class='url'>https://www.ffis.es/formacion/buscador/#/oferta/19</a>
+            <span>), es porque no han activado las líneas para el nuevo año en</span>
+            <a href='http://www.ffis.es/herramientas/formacion/pagina.php?modo=lineas' target='_blank' class='url'>http://www.ffis.es/herramientas/formacion/pagina.php?modo=lineas</a>
+        </li>
+    </ol>
+    <p>&nbsp;</p>
+    <h2 id='error-moodle-smtp-relay'><span>Error Moodle SMTP Relay</span></h2>
+    <p><span>En la instalación de Moodle, en el archivo /lib/moodlelib.php hay que buscar la función get_mailer. En esa función hay varias posibilidades de configuración. Una es usar qmail que no la queremos, La que nos interesa es cuando tenemos definido el SMTP host. En esa parte del código al objeto mailer, propiedad STMPAuth hay que ponerla a false. Con eso ya está solucionado.</span></p>
+    <p>&nbsp;</p>
+    <h2 id='permisos-coordinador-sigfor'><span>Permisos Coordinador SIGFOR</span></h2>
+    <ol start='' >
+        <li>
+            <p><span>Dar de alta el usuario:</span></p>
+            <p><code>insert into permisos(usr, pw) values (&#39;27460453V&#39;, &#39;27460453&#39;);</code></p>
+            <p><code>insert into permisos(usr, pw, centroTrabajoResponsable) values (&#39;48868634Q&#39;, &#39;48868634&#39;,0);</code></p>
+        </li>
+        <li>
+            <p><span>Dar de alta el conjunto:</span></p>
+            <p><code>insert into conjunto (nombre) values (&#39;Responsable Estrategias de Salud 2015&#39;);</code></p>
+            <p><code>select * from conjunto order by conjuntoid desc limit 1</code></p>
+            <p>
+                <span>		</span>
+                <span>(ha devuelto 71, cambiar en las siguientes sentencias por el valor que haya dado )</span>
+                <span>​</span>
+                <span>		</span>
+                <span>(ha devuelto 73, cambiar en las siguientes sentencias por el valor que haya dado )</span>
+            </p>
+            <p>&nbsp;</p>
+        </li>
+        <li>
+            <p><span>Dar de alta la restricción del conjunto nuevo</span></p>
+            <p><code>insert into restriccion (anyo, linea, curso, edicion, centro) values (2015, 36, 0, 0, 0);</code>
+            </p>
+            <p><code>select restriccionid from restriccion order by restriccionid desc limit 1;</code></p>
+            <p><span>			</span>
+                <span>(ha devuelto 60, cambiar en las siguientes sentencias por el valor que haya dado)</span>
+            </p>
+            <p><code>insert into restriccion (anyo, linea, curso, edicion, centro) values (2019, 15, 1658, 1, 0);</code></p>
+            <p><span>			</span>
+                <span>(ha devuelto 62, cambiar en las siguientes sentencias por el valor que haya dado)</span>
+            </p>
+            <p><span>Si añades restricción para la edición, sólo podrá ver esa, si pones 0 podrás ver cualquiera</span></p>
+            <p>&nbsp;</p>
+        </li>
+        <li>
+            <p><span>Dar de alta las capacidades del conjunto nuevo:</span></p>
+            <p><code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 94, 71);</code></p>
+            <p><code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 63, 71);</code></p>
+            <p><code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 75, 71);</code></p>
+            <p><code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 77, 71);</code></p>
+            <p><code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 55, 71);</code></p>
+            <p>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 55, 71);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 118, 71);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 39, 71);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 122, 71);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (60, 86, 71);</code>
+            </p>
+            <p>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 94, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 63, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 75, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 77, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 55, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 118, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 39, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 122, 73);</code>
+                <code>insert into capacidadesconjunto(restriccion, capacidad, conjunto) values (62, 86, 73);</code>
+            </p>
+        </li>
+        <li>
+            <p><span>Si es un gestor tipo nuevo usuario - Maria Isabel - María José.. Hay que meter también el uusuario en el conjunto de permisos usr_conjunto - Se duplica en base a uno anterior o se asocia el usuario al conjunto que se deseé</span></p>
+            <p><span>A parte de las inserciones en la bbdd hay que asignarle el rol aquí:</span>
+                <a href='http://www.ffis.es/herramientas/formacion/pagina.php?&amp;modo=usuarios' target='_blank' class='url'>http://www.ffis.es/herramientas/formacion/pagina.php?&modo=usuarios</a>
+            </p>
+            <p>&nbsp;</p>
+            <p>
+                <span>Y asignar las nuevas capacidades según los requisitos que sean necesarios, para ello lista</span>
+                <span>las capacidades de la tabla y realiza la asignación correspondiente.</span>
+            </p>
+            <p>&nbsp;</p>
+
+        </li>
+    </ol>
+
+    <p><img src="{{ url_for ('static', filename='documentacion/lista-capaci-tabla.jpg') }}"  type="image/png"></p>
+    <p>&nbsp;</p>
+    <h2 id='insertar-nodos-centros-de-trabajo-s01640bc'><span>Insertar nodos centros de trabajo s01640bc</span></h2>
+    <p>
+        <span>Primero insertamos el centro en centrostrabajo, posteriormente lo metemos como hijo de quién sea</span>
+        <span>necesario.</span>
+    </p>
+    <p><code>INSERT INTO ct_en_ct (centro_padre, centro_hijo) VALUES (&#39;42&#39;, &#39;8030813&#39;);</code></p>
+    <p><span>Importante, debe tener seleccionable a 1 si es un centro que puede ser seleccionado</span></p>
+    <p>&nbsp;</p>
+    <h2 id='cambio-de-participantes-programa-activa-nuevo-profesor'><span>Cambio de participantes Programa Activa, nuevo profesor</span></h2>
+    <p><span>Primero debe haberse dado de alta el nuevo profesor, nuevo usuario en la tabla usuario, ojo en</span></p>
+    <p><a href='http://www.activa.ffis.es/crd/admin/activaUsersList.jsf' target='_blank' class='url'>http://www.activa.ffis.es/crd/admin/activaUsersList.jsf</a></p>
+    <p><span>Ejemplo con: dar de baja a Guillermo Rodríguez Hernández y pasar sus participantes a Carlos GARCIA SIDRACH DE CARDONA</span></p>
+    <p><span>Buscamos el “id” de Guillermo ==&gt; 11595</span></p>
+    <p><span>Carlos garcia sidrch ya debe haberse dado de alta ==&gt; 8694</span></p>
+    <p><span>Ahora hay que cambiar los pacientes creados por el usuario 11595 al 8694</span></p>
+    <p><code>SELECT * FROM crd_patient WHERE creation_user = 11595</code></p>
+    <p><code>UPDATE crd_patient SET creation_user = &#39;8694&#39; WHERE creation_user = 11595;</code></p>
+    <p>
+        <span>Y eliminamos el usuario inicial, marcar eliminado en la tabla usuario, así como de la tabla</span>
+        <span>portal_usuario:</span>
+    </p>
+    <p><code>UPDATE usuario SET eliminado = &#39;1&#39; WHERE usuario.id = 11595 ;</code></p>
+    <p><code>UPDATE portal_usuario SET eliminado = &#39;1&#39; WHERE usuario = 11595 and portal = 74;</code></p>
+    <p><span>Aquí el principal problema que puede ocurrir es que haya que cambiar sólo algunos pacientes porque sea un cambio de área, entonces habría que detectar los pacientes de ese centro. Entonces habría que hacer algo como:</span></p>
+    <p><code>Select * from crd_patient where creation_user = 15106 and expediente IN (&quot;MU1097&quot;,&quot;MU1099&quot;,&quot;MU1100&quot;,&quot;MU1110&quot;,&quot;MU1119&quot;,&quot;MU1120&quot;,&quot;MU1121&quot;,&quot;MU1122&quot;,&quot;MU112 3&quot;,&quot;MU1124&quot;,&quot;MU1126&quot;,&quot;MU1127&quot;,&quot;MU1128&quot;,&quot;MU1130&quot;,&quot;MU1131&quot;,&quot;MU1132&quot;,&quot;MU1258&quot;,&quot;MU1 259&quot;)</code></p>
+    <p>&nbsp;</p>
+    <h2 id='liberar-espacio-en-servidor-windows'><span>Liberar espacio en Servidor Windows</span></h2><p>
+    <span>Comandos previos para cualquier windows</span></p>
+    <ol start='' ><li><span>Dism.exe /online /Cleanup-Image /StartComponentCleanup</span></li><li><span>Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase</span></li><li><span>Dism.exe /online /Cleanup-Image /SPSuperseded</span></li></ol><p>&nbsp;</p><ul><li><p><strong><span>Detener el Servicio de Actualización de Windows y cambiar el nombre de</span></strong>
+<strong><span>la carpeta</span></strong></p><p><span>Inicio&gt;Ejecutar tipo cmd y presione entrar tipo net stop wuauserv y presione entrar tipo rename c:\windows\SoftwareDistribution softwaredistribution.old y presione entrar</span></p></li><li><p><strong><span>La creación de un vínculo simbólico mediante la Unión</span></strong></p><p><span>En este ejemplo la carpeta de distribución de software será redirigido desde C:\WINDOWS\SoftwareDistribution a la D:\WINDOWS\SoftwareDistribution </span></p></li><li><p><strong><span>La creación de la Unión</span></strong></p><p><span>Para crear el directorio de destino desde el símbolo del sistema</span></p><p><code>C:\&gt;md D:\Windows\SoftwareDistribution</code></p></li><li><p><strong><span>Para crear la Unión</span></strong></p><p><code>C:\&gt;junction C:\WINDOWS\SoftwareDistribution &quot;D:\WINDOWS\SoftwareDistribution&quot;</code></p></li><li><p><strong><span>Reinicie el Servicio de Actualización de Windows</span></strong></p><p><code>net start wuauserv</code></p><p><span>Una vez que todo ha sido verfieid estar trabajando normalmente eliminar la softwaredistribution.vieja carpeta.</span></p></li></ul><p>&nbsp;</p><h2 id='liberar-espacio-mysql---purga-de-archivos-temporales'><span>Liberar espacio MYSQL - Purga de archivos temporales</span></h2><p><span>Conectarse a mysql con el comando </span><code>mysql -u user -p</code><span> </span></p><p><span>una vez dentro, ejecutar </span><code>PURGE BINARY LOGS BEFORE NOW();</code></p><p>&nbsp;</p><h2 id='arrancar-mongo-de-productos-del-acuerdo-marco'><span>Arrancar Mongo de productos del Acuerdo Marco</span></h2><p><code>sudo mongod --dbpath /var/lib/mongodb &amp;</code></p><p>&nbsp;</p><h2 id='mysql-80-instalación-y-configuración'><span>MySQL 8.0 instalación y configuración</span></h2><p><strong><span>Para desinstalar versiones anteriores:</span></strong></p><p>&nbsp;</p><p><code>sudo apt-get --purge remove mysql-client mysql-server mysql-common</code></p><p><code>sudo apt-get autoremove</code></p><p><code>sudo rm -rf /etc/mysql/</code></p><p>&nbsp;</p><p><strong><span>Instaalcion de mysql 8:</span></strong></p><p><code>sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb</code></p><p><code>sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb</code></p><p><code>sudo apt-get update</code></p><p><code>sudo apt-get install mysql-server</code></p><p>&nbsp;</p><p><strong><span>inyectar copias de MySQL8.0 en MySQL5.XXX</span></strong></p><p><span>Si nos da error en el script deberiamos de meter alguno de estas líneas</span></p><p><code>sed -i &#39;s/utf8mb4/utf8/g&#39; your_file.sql</code></p><p><code>sed -i &#39;s/utf8_unicode_ci/utf8_general_ci/g&#39; your_file.sql</code></p><p><code>sed -i &#39;s/utf8_unicode_520_ci/utf8_general_ci/g&#39; your_file.sql</code></p><p><strong><span>ERROR EN MYSQL 8.0 CON GROUP BY</span></strong></p><p><span>En /etc/mysql/conf.d/mysql.cnf añadir:</span></p><p><span>[mysqld]</span>
+<code>sql_mode=&#39;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTIoON&#39;</code></p><p>&nbsp;</p><p><strong><span>MODIFICAR EN MYSQL LA RAM DE USOcarm</span></strong></p><p><code>set global innodb_buffer_pool_size=536870912;</code></p><p><span>o en /etc/mysql/conf.d/mysql.cnf añadir:</span></p><p><code>[mysqld]</code>
+<code>innodb_buffer_pool_size=512M</code></p><p><span>Mas información</span>
+<a href='https://www.linux-party.com/42-mysql/9630-configurar-servidor-mysql-mariadb-para-alto-rendimiento' target='_blank' class='url'>https://www.linux-party.com/42-mysql/9630-configurar-servidor-mysql-mariadb-para-alto-rendimiento</a></p><p><span>Documentacion MySQL</span></p><p><a href='https://dev.mysql.com/doc/refman/8.0/en/' target='_blank' class='url'>https://dev.mysql.com/doc/refman/8.0/en/</a></p><p>&nbsp;</p><h2 id='script-para-cargar-bbdd-imib2-windows-y-linux'><strong><span>Script para cargar bbdd imib2 windows y linux</span></strong></h2><ul><li><code>mysql -q -u root -pzlevnz24 imib2 --max_allowed_packet 512M --default-character-set=utf8 &lt; c:\bbdd\imib2-2021-01-26.sql</code></li><li><code>mysqldump -q -u homerJ -h $server -pzlevnz24 --extended-insert=FALSE --max_allowed_packet 512M --default-character-set=utf8 $bbdd | gzip -9 &gt; $fichero</code></li></ul><p>&nbsp;</p></div></div>
+{% endblock %}

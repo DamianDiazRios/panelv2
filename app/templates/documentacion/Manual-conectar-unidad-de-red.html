@@ -1,0 +1,98 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+
+<div id='write'  class=''>
+    <h1 id='manual-conectar-unidad-de-red'>
+        <span>Manual conectar unidad de red</span>
+    </h1>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h2 id='en-windows'><span>(En Windows)</span></h2>
+    <p>&nbsp;</p>
+    <h2 id='windows-10'><span>Windows 10:</span></h2>
+    <p>
+        <span>En &quot;Este equipo&quot;</span>
+        <span>Clic secundario del ratón ==&gt; conectar a unidad de red</span>
+    </p>
+    <p>&nbsp;</p>
+    <h2 id='windows-11'><span>Windows 11</span></h2>
+    <p><span>En &quot;Este equipo&quot;</span>
+        <span>Clic secundario del ratón ==&gt; mas opciones ==&gt; conectar a unidad de red</span>
+    </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><img src="{{ url_for ('static', filename='documentacion/winconnect.png') }}" type="image/png"></p>
+    <p><span>En la siguiente pantalla escribir en el campo “carpeta”</span></p>
+    <pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="">
+        <div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="">
+            <div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;">
+                <textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;">
+                </textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true">
+            </div>
+            <div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+            <div class="CodeMirror-scroll" tabindex="-1">
+                <div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;">
+                    <div style="position: relative; top: 0px;">
+                        <div class="CodeMirror-lines" role="presentation">
+                            <div role="presentation" style="position: relative; outline: none;">
+                                <div class="CodeMirror-measure"></div>
+                                <div class="CodeMirror-measure"></div>
+                                <div style="position: relative; z-index: 1;"></div>
+                                <div class="CodeMirror-code" role="presentation">
+                                    <div class="CodeMirror-activeline" style="position: relative;">
+                                        <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                                        <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div>
+                                        <pre class=" CodeMirror-line " role="presentation">
+                                            <span role="presentation" style="padding-right: 0.1px;">\\10.181.96.80\NombreUnidadDeRed</span>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div>
+                <div class="CodeMirror-gutters" style="display: none; height: 23px;"></div>
+            </div>
+        </div>
+    </pre>
+    <p><span>Y marcar la opción de &quot;Conectar de nuevo al iniciar sesión &quot;</span></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/windata.jpg') }}" type="image/png"></p>
+    <p><span>Si nos pide las credenciales, son:</span></p>
+    <ul>
+        <li><strong><span>Usuario ==&gt;</span></strong>
+            <span> Iniciales seguidas de las dos últimas cifras del DNI y a letra </span>
+        </li>
+        <li><strong><span>Contraseña</span></strong>
+            <span> ==&gt; DNI sin letra</span>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h2 id='en-mac'><span>(En Mac)</span></h2>
+    <p>&nbsp;</p>
+    <p>
+        <span>Estando en la aplicación Finder, en el menú superior de opciones</span>
+        <span>&quot;ir&quot; ==&gt; &quot;conectarse al servidor&quot;</span>
+    </p>
+    <p><img src="{{ url_for ('static', filename='documentacion/macconnect.jpg') }}" type="image/png"></p>
+    <p>&nbsp;</p>
+    <p><span>En la siguiente pantalla escribir:</span></p>
+    <p><code>smb://10.181.96.80/NombreUnidadDeRed</code></p>
+    <p><img src="{{ url_for ('static', filename='documentacion/macsmb.jpg') }}" type="image/png"></p>
+    <p><span>Si queremos guardar la ruta para futuras conexiones, pulsar en el + de la parte infe izquierda</span></p>
+    <p><span>Si nos pide las credenciales, son:</span></p>
+    <ul>
+        <li><strong><span>Usuario</span></strong>
+            <span> ==&gt; Iniciales seguidas de las dos últimas cifras del DNI y a letra </span>
+        </li>
+        <li><strong><span>Contraseña</span></strong><span> ==&gt; DNI sin letra</span></li>
+    </ul>
+    <p><img src="{{ url_for ('static', filename='documentacion/macpass.jpg') }}" type="image/png"></p>
+    <p><span>Si se quiere guardar el usuario y contraseña, marcar la casilla de guardar en el llavero</span></p>
+</div>
+
+{% endblock %}

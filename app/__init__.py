@@ -29,11 +29,13 @@ from .autenticacion.autenticacion_vista import autenticacion
 from .panel.panel_vistas import panel
 from .correos.correo_vistas import correo
 from .backup.backup_vista import backup
+from .documentacion.documentacion import documentacion
 
 # VISTAS
 app.register_blueprint(autenticacion)
 app.register_blueprint(panel)
 app.register_blueprint(correo)
 app.register_blueprint(backup)
+app.register_blueprint(documentacion)
 
 db.create_all()

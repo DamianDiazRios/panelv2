@@ -1,0 +1,9 @@
+{% extends 'layout/base.html' %}
+{% block contenido %}
+  <div class="row">
+    <h3 class="text-center">Documentación Informática FFIS-IMIB</h3>
+    <a href="{{ url_for('documentacion.CambioContrasena') }}">Cambio contraseña correo</a>
+    <a href="{{ url_for('documentacion.ManualUnidadRed') }}">Manual conexión unidad de red</a>
+    <a href="{{ url_for('documentacion.DocumentoServidores') }}">Documento Servidores</a>
+  </div>
+{% endblock %}

@@ -1,12 +1,9 @@
-from flask import Blueprint, render_template, request, url_for, flash, redirect, abort, session
-from app import db, mysql
-from app.correos.correo_bbdd import Correos
+from flask import Blueprint, render_template, request
+from app import mysql
 
 #from app import db, mysql #msyql para implementar el buscador
 from flask_login import login_required
-from werkzeug.utils import secure_filename
-import paramiko, re
-from werkzeug.security import check_password_hash
+
 
 correo = Blueprint('correo',__name__)
 
@@ -59,7 +56,7 @@ def buscar():
         print(asunto)
         cur = mysql.connection.cursor()
         asunto = f"%{asunto}%"
-        cur.execute("SELECT id, asunto, contenido, destino, fecha_envio, fuente, tipo_alerta FROM copiamails WHERE asunto like %s", {asunto})
+        cur.execute("SELECT id, asunto, contenido, destino, fecha_envio, fuente, tipo_alerta FROM copiamails WHERE asunto like %s ORDER BY fecha_envio DESC", {asunto})
         asunto = cur.fetchall()
         print(asunto)
         return render_template("correo/buscador.html", asuntos=asunto)
