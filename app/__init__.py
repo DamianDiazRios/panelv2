@@ -10,7 +10,7 @@ app.app_context().push()#RuntimeError: Working outside of application context.
 # Esta parte para implementar panel
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'damian'
-app.config['MYSQL_PASSWORD'] = 'Yvqvn1983-'
+app.config['MYSQL_PASSWORD'] = 'damian82'
 app.config['MYSQL_DB'] = 'panel'
 mysql = MySQL(app)
 #########################################

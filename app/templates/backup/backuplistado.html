@@ -1,28 +1,37 @@
 {% extends 'layout/base.html' %}
+{% from 'fragmentos/_pagination.html' import m_pagination %}
 {% block contenido %}
 <div class="text-center">
     <div class="row">
-        <table class="table table-correos table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th scope="col" class="text-center">Aplicación</th>
-                <th scope="col" class="text-center">Descripción</th>
-                <th scope="col" class="text-center">Acción</th>
-            </tr>
-            </thead>
-            <tbody>
-                {% for backup in listado %}
+        <div class="col-md-2 mt-3"></div>
+        <div class="col-md-8 mt-3">
+            <table class="table table-correos table-striped table-bordered table-hover">
+                <thead>
                 <tr>
-                    <td align="center">{{ backup['APLICACION']|striptags|title }}</td>
-                    <td class="col-md-9">{{ backup['OBSERVACIONES']|striptags|title }}</td>
-                        <td><a href="{{ url_for('backup.editar', id=backup['id']) }}" class="btn btn-tamano botonCorreo">Ver Backup</a></td>
+                    <th scope="col" class="text-center">Aplicación</th>
+                    <th scope="col" class="text-center">Servidor</th>
+                    <th scope="col" class="text-center">Acción</th>
                 </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for backup in listado.items %}
+                    <tr class="text-center">
+                        <td class="col-md-4"><a href="{{ url_for('backup.backupmostrar', id=backup['id']) }}" class="btn botonCorreo">{{ backup['APLICACION']|striptags|title }}</a></td>
+                        <td class="col-md-4">{{ backup['SERVIDOR_EJECUCION']|striptags|title }}</td>
+                        <td class="text-center col-md-2">
+                            <a href="{{ url_for('backup.editar', id=backup['id']) }}" class="btn btn-backupEditar"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+                            <a href="{{ url_for('backup.eliminar', id=backup['id']) }}" class="btn btn-sm btn-backupBorrar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2 mt-3"></div>
     </div>
     <div>
         <a href="{{ url_for('backup.nuevo') }}" class="btn btn-servidores">Añadir Backup</a>
     </div>
 </div>
+{{ m_pagination(listado) }}
 {% endblock %}

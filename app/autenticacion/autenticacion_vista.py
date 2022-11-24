@@ -24,7 +24,7 @@ def load_user(user_id):
 @autenticacion.route('/', methods=('GET', 'POST'))
 def login():
     if current_user.is_authenticated:
-        flash("Ya estás logueado "+current_user.usuario)
+        flash("No tienes permisos "+current_user.usuario)
         return redirect(url_for('panel.index'))
 
     form = Login(meta={'csrf':False})

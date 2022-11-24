@@ -1,8 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, flash, redirect, abort
 from app import db, mysql
-from app.backup.backup_bbdd import Backup, BackupFormulario
-
-
+from app.backup.backup_bbdd import Backup, BackupFormulario ,FormSINO
+from app.autenticacion.autenticacion_vista import admin_required
 from flask_login import login_required
 from flask_login import login_required
 #from app import CKEditor
@@ -12,14 +11,22 @@ backup = Blueprint('backup', __name__)
 
 @backup.before_request
 @login_required
+@admin_required
 
 def validacion():
     pass
 
 @backup.route('/backuplistado')
-def backuplistado():
+@backup.route('/backuplistado/<int:page>')
+def backuplistado(page=1):
     backup = Backup.query.order_by(Backup.APLICACION.asc())
-    return render_template('backup/backuplistado.html', listado = backup)
+    return render_template('backup/backuplistado.html', listado = backup.paginate(page, 8))
+
+
+@backup.route('/backupmostrar/<int:id>', methods=['GET', 'POST'])
+def backupmostrar(id):
+    backup=Backup.query.get({"id":id})
+    return render_template('backup/backupmostrar.html', backup=backup)
 
 @backup.route('/backup-nuevo', methods=('GET', 'POST'))
 def nuevo():
@@ -91,3 +98,16 @@ def editar(id):
     if formulario.errors:
         flash(formulario.errors, 'danger')
     return render_template('/backup/backup-editar.html', aplicacion=aplicacion, formularios=formulario)
+
+@backup.route('/backup-eliminar/<int:id>', methods=['GET', 'POST'])
+def eliminar(id):
+    backup = Backup.query.get_or_404(id)
+    if backup is None:
+        abort(404)
+    formulario = FormSINO(meta={'csrf':False})
+    if formulario.validate_on_submit():
+        if formulario.si.data:
+            db.session.delete(backup)
+            db.session.commit()
+        return redirect(url_for('backup.backuplistado'))
+    return render_template("/backup/eliminar.html", backup=backup, formularios=formulario)

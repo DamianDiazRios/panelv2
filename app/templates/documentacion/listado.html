@@ -1,9 +1,15 @@
 {% extends 'layout/base.html' %}
 {% block contenido %}
-  <div class="row">
+
+  <div class="row mt-4">
+    {% if current_user.rol == 'admin' %}
     <h3 class="text-center">Documentación Informática FFIS-IMIB</h3>
     <a href="{{ url_for('documentacion.CambioContrasena') }}">Cambio contraseña correo</a>
     <a href="{{ url_for('documentacion.ManualUnidadRed') }}">Manual conexión unidad de red</a>
     <a href="{{ url_for('documentacion.DocumentoServidores') }}">Documento Servidores</a>
+    {% endif %}
+
+    <a href="{{ url_for('documentacion.DocumentacionFormacion') }}">Documentación Formación</a>
+
   </div>
 {% endblock %}

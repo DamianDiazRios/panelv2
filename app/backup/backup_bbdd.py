@@ -55,7 +55,7 @@ class Backup(db.Model):
 #CLASES FORMULARIO
 class BackupFormulario(FlaskForm):
         APLICACION = StringField('Aplicación', validators=[InputRequired()])
-        SERVIDOR_EJECUCION = StringField('Servidor en ejecución')
+        SERVIDOR_EJECUCION = StringField('Servidor en ejecución', default=None)
         SERVIDOR_BACKUP_1 = StringField('Servidor Backup 1')
         PERIOCIDAD_1 = TextAreaField('Periocidad Backup 1')
         HORA_1 = StringField('Hora Backup 1')
@@ -65,7 +65,7 @@ class BackupFormulario(FlaskForm):
         PERIOCIDAD_2 = TextAreaField('Periocidad Backup 2')
         HORA_2 = StringField('Hora Backup 2')
         RUTA_2 = StringField('Ruta Backup 2')
-        SERVIDOR_BACKUP_3 = TextAreaField('Servidor Backup 3')
+        SERVIDOR_BACKUP_3 = StringField('Servidor Backup 3')
         PERIOCIDAD_3 = TextAreaField('Periocidad Backup 3')
         HORA_3 = StringField('Hora Backup 3')
         RUTA_3 = StringField('Ruta Backup 3')

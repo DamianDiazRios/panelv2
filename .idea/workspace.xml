@@ -2,21 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5020d19-6217-42be-9af0-a6ff80afa28e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/documentacion/documentacion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/documentacion/clic-cambiopass.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/global/css/documentacion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/documentacion/Cambio-contraseña-correo-ffis-imib.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/documentacion/listado.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/backup/backupmostrar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/backup/eliminar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/panelv2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/panelv2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/autenticacion/autenticacion_vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/autenticacion/autenticacion_vista.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backup/backup_bbdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backup/backup_bbdd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backup/backup_vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backup/backup_vista.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/correos/correo_vistas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/correos/correo_vistas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/correo/copiamails.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/correo/copiamails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/correo/correoCompleto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/correo/correoCompleto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_alertas.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_navegador.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/documentacion/documentacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/documentacion/documentacion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/panel/panel_vistas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/panel/panel_vistas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/panel/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/panel/css/estilo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/backup/_formulario.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/_formulario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/backup/backup-editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/backup-editar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/backup/backuplistado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/backuplistado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/documentacion/listado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/documentacion/listado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuracion.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -41,16 +48,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/bioinformatica4/python/panelv2/app/templates/documentacion&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/damian/Documentos/python/panel/app/panel/panel_vistas.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/backup" />
       <recent name="$PROJECT_DIR$/app/templates/documentacion" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -71,6 +80,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="backup_bbdd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="panelv2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/backup" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/backup/backup_bbdd.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -103,6 +133,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.backup_bbdd" />
         <item itemvalue="Python.__init__" />
       </list>
     </recent_temporary>

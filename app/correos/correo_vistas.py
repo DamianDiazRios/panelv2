@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 from app import mysql
-
+from app.autenticacion.autenticacion_vista import admin_required
 #from app import db, mysql #msyql para implementar el buscador
 from flask_login import login_required
 
@@ -10,6 +10,7 @@ correo = Blueprint('correo',__name__)
 
 @correo.before_request
 @login_required
+@admin_required
 
 def validacion():
     pass

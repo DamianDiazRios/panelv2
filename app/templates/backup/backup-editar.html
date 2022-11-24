@@ -1,6 +1,18 @@
 {% extends 'layout/base.html' %}
 {% block contenido %}
-  <p>EDITAR</p>
+<div class="text-center">
+    <a class="btn btn botonCorreo" href="{{ url_for('backup.backuplistado') }}">Listado</a>
+</div>
+<br/>
+<div class="form-group">
+    <form action="{{ url_for('backup.editar', id=aplicacion.id) }}" method="POST">
+        {% include 'backup/_formulario.html' %}
+        <div class="text-center">
+            <input class="btn botonCorreo -btn-lg btn-block" type="submit" value="Actualizar">
+        </div>
+    </form>
+</div>
+
 <br/>
 {% endblock %}
 

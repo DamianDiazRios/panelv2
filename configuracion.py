@@ -3,7 +3,7 @@ class ConfiguracionBase(object):
     SECRET_KEY = 'awk-9RFG*85'
     DEBUG = True
     TESTING = False
-    SQLALCHEMY_DATABASE_URI="mysql+pymysql://damian:Yvqvn1983-@localhost:3306/panel?charset=utf8mb4"
+    SQLALCHEMY_DATABASE_URI="mysql+pymysql://damian:damian82@localhost:3306/panel?charset=utf8mb4"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ConfiguracionProduccion(ConfiguracionBase):

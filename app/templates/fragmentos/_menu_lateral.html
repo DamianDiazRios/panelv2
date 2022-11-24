@@ -1,4 +1,4 @@
-{% if current_user.rol == 'admin' %}
+
     <div class="area"></div><div class="main-menu">
         <nav>
             <ul>
@@ -44,30 +44,6 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-font fa-2x"></i>
-                        <span class="nav-text">
-                           Quotes
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                       <i class="fa fa-table fa-2x"></i>
-                        <span class="nav-text">
-                            Tables
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                        <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
                             {{ current_user.usuario }}
@@ -87,4 +63,5 @@
             </ul>
         </nav>
     </div>
-{% endif %}
+<!--{% if current_user.rol == 'admin' %}-->
+<!--{% endif %}-->

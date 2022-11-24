@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, flash, redirect, abort, session
 from app.panel.panel_bbdd import RegistroServidor, Servidores, FormSINO
 from app import db, mysql
+from app.autenticacion.autenticacion_vista import admin_required
 #from app import db, mysql #msyql para implementar el buscador
 from flask_login import login_required
 from werkzeug.utils import secure_filename
@@ -24,6 +25,7 @@ def index():
 
 #REGISTRO DE SERVIDORES
 @panel.route('/panel/registro', methods = ('GET', 'POST'))
+@admin_required
 def registro():
     form = RegistroServidor(meta={'csrf':False})
     if form.validate_on_submit():
@@ -38,8 +40,10 @@ def registro():
 
 #DATOS DEL SERVIDOR SELECCIONADO
 @panel.route('/panel/<int:id_servidor>', methods = ['GET', 'POST'])
+@admin_required
 def servidor(id_servidor):
     servidor = Servidores.query.get_or_404(id_servidor)
+
 
     #CONEXIÓN AL SERVIDOR
     host = servidor.ip
@@ -91,6 +95,7 @@ def servidor(id_servidor):
 
 #ELIMINAR SERVIDOR
 @panel.route('/panel/eliminarServidor/<int:id_servidor>', methods = ['GET', 'POST'])
+@admin_required
 def eliminarServidor(id_servidor):
     servidor = Servidores.query.get_or_404(id_servidor)
     cur=mysql.connection.cursor()
