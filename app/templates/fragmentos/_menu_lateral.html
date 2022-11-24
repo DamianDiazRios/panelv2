@@ -10,6 +10,7 @@
                         </span>
                     </a>
                 </li>
+                {% if current_user.rol == 'admin' %}
                 <li class="has-subnav">
                     <a href="{{ url_for('panel.registro') }}">
                         <i class="fa fa-laptop fa-2x"></i>
@@ -34,6 +35,7 @@
                         </span>
                     </a>
                 </li>
+               {% endif %}
                 <li>
                     <a href="{{ url_for('documentacion.indice') }}">
                         <i class="fa fa-book fa-2x"></i>

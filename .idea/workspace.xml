@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5020d19-6217-42be-9af0-a6ff80afa28e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
