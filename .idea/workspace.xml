@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5020d19-6217-42be-9af0-a6ff80afa28e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/templates/backup/backupmostrar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/backup/eliminar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/panelv2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/panelv2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/autenticacion/autenticacion_vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/autenticacion/autenticacion_vista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backup/backup_bbdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backup/backup_bbdd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backup/backup_vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backup/backup_vista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/correos/correo_vistas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/correos/correo_vistas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/documentacion/documentacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/documentacion/documentacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/panel/panel_vistas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/panel/panel_vistas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/panel/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/panel/css/estilo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/backup/_formulario.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/_formulario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/backup/backup-editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/backup-editar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/backup/backuplistado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/backup/backuplistado.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/documentacion/listado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/documentacion/listado.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/fragmentos/_menu_lateral.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuracion.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/documentacion/documento-formacion.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
